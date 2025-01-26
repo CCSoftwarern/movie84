@@ -1,1 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
+:root{
+    --primary-color: #104a2e;
+    --second-color: #151b27;
+    --terceiro-color: #1f2734;
+    --text-color: #fff;
+}
+
+.navbar{
+    background-color: var(--primary-color)!important;
+    color: var(--text-color)!important;
+}
+body{
+    background-color: var(--second-color)!important;
+}
+.footer{
+    background-color: var(--primary-color)!important;
+}
+
+
+
+
