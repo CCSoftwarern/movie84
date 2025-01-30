@@ -1,6 +1,5 @@
-import { Component, Input, OnInit, inject } from '@angular/core';
-import { Router, ActivatedRoute, RouterModule } from '@angular/router';
-import { CardfilmesComponent } from '../cardfilmes/cardfilmes.component';
+import { Component, OnInit} from '@angular/core';
+import { ActivatedRoute, RouterModule } from '@angular/router';
 import { filme } from '../../interfaces/filme';
 import { DetalhefilmeService } from '../../services/detalhefilme.service';
 import { FrmComentariosComponent } from "../frm-comentarios/frm-comentarios.component";

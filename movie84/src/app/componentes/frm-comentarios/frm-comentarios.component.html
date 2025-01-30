@@ -1,1 +1,9 @@
-<p>frm-comentarios works!</p>
+<div class="mt-4 border border-dark-subtle">
+    <form [formGroup]="comentariosForm" (ngSubmit)="onSubmit()">
+        <div>
+            <label for="name">Nome</label>
+            <input type="text" formControlName="name"/>
+        </div>
+        <button type="submit">Cadastrar</button>
+    </form>
+</div>
