@@ -1,0 +1,39 @@
+<div class="container mt-5">
+  <!-- Título da seção -->
+  <p class="fonteSessao text-center font-weight-bold display-4">Detalhes do Filme</p>
+
+  <div class="row">
+    <!-- Coluna da imagem -->
+    <div class="col-md-4">
+      <img [src]="'https://image.tmdb.org/t/p/w500/'+detalheFilme?.poster_path" alt="Poster do filme"
+        class="img-fluid rounded shadow" />
+    </div>
+
+    <!-- Coluna de informações do filme -->
+    <div class="col-md-8">
+      <!-- Título do filme -->
+      <p class="fonteTitulo font-weight-bold text-uppercase display-5">{{ detalheFilme?.title }}</p>
+
+      <!-- Descrição do filme  -->
+      <p class="mt-3 sinopse">{{ detalheFilme?.overview || 'Descrição não disponível' }}</p>
+
+      <p class="mt-3 sinopse"><strong>Lançamento:</strong> {{ detalheFilme?.release_date}}</p>
+
+
+      <!-- Botão de voltar ou outras ações -->
+      <div class="mt-4">
+        <button class="btn btn-success" routerLink="/filmes">Voltar</button>
+      </div>
+    </div>
+  </div>
+
+  <div>
+
+    <app-lista-comentarios></app-lista-comentarios>
+
+  </div>
+
+  <div>
+    <app-frm-comentarios></app-frm-comentarios>
+  </div>
+</div>

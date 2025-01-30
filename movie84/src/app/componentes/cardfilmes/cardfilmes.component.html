@@ -1,0 +1,40 @@
+
+  <!-- {{ filmes | json }} -->
+
+  <div class="container mt-6">
+    <p class="fonteSessao">Filmes em Cartaz</p>
+  </div>
+
+ <div class="container">
+  <div class="g-2">
+
+  </div>
+
+  
+
+  
+  <div class="row row-cols-1 row-cols-md-6 g-4">
+    @for (item of filmes; track item.id) {
+    <div class="col">
+      <div class="card h-100 shadow animate__animated animate__fadeIn">
+        <a  [routerLink]="'/detalhes/'+item.id"><img [src]="'https://image.tmdb.org/t/p/w500/'+item.poster_path"  class="card-img-top" alt="...">
+          <span class="badge badge-custom rounded-pill text-bg-warning">IMDB {{item.vote_average}}</span>
+         
+        </a>
+        
+        <div class="card-body">
+          <h5 class="card-title">{{ item.title }}</h5>
+          <p class="card-text .fs-6 text-truncate">{{ item.overview }}</p>
+        </div>
+      </div>
+    
+    </div>
+  } @empty {
+    <li>There are no items.</li>
+    }
+  </div>
+
+ </div>
+
+
+

@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { map,Observable } from "rxjs";
-import { filme } from "../../interfaces/filme";
+import { filme } from "../interfaces/filme";
 import { environment } from "../../environments/environment";
 
 @Injectable({
@@ -17,6 +17,8 @@ export class FilmeService{
 
         return this.http.get<filme[]>(this.apiURL, { headers }).pipe(map((response: any) => response.results));
     }
+
+    
 
 
 }
