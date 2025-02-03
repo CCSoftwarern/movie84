@@ -2,12 +2,15 @@ import { Component, OnInit } from '@angular/core';
 import { Comentario } from '../../interfaces/comentario';
 import { ComentariosService } from '../../services/comentarios.service';
 import { ActivatedRoute, Route } from '@angular/router';
+import { DatePipe } from '@angular/common';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-lista-comentarios',
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './lista-comentarios.component.html',
-  styleUrl: './lista-comentarios.component.css'
+  styleUrl: './lista-comentarios.component.css',
+  providers: [DatePipe]
 })
 export class ListaComentariosComponent implements OnInit {
 
@@ -15,7 +18,7 @@ export class ListaComentariosComponent implements OnInit {
    idfilme: string | null= '0';
     
   
-    constructor(private servico: ComentariosService, private route: ActivatedRoute){}
+    constructor(private servico: ComentariosService, private route: ActivatedRoute, private datePipe: DatePipe){}
 
   
     ngOnInit(): void {
@@ -30,11 +33,12 @@ export class ListaComentariosComponent implements OnInit {
       });
     }
   
-    onGetComentarios(id_filme:string): void {
+   onGetComentarios(id_filme:string): void {
       this.servico.getComentarios(id_filme).subscribe({
         next: (dados) => {
           this.comentarios = dados;
           console.log(dados);
+
         },
         error: (erro) => {
           console.log(erro);
@@ -44,5 +48,13 @@ export class ListaComentariosComponent implements OnInit {
         }
       })
     }
+
+    reloadPage() {
+      window.location.reload();
+    }
+
+
+
+
 
 }

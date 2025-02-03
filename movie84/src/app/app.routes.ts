@@ -13,7 +13,7 @@ export const routes: Routes = [
 
     },
     {
-        path: 'filmes',
+        path: 'filmes/:nmlista',
         component: CardfilmesComponent
 
     },
@@ -23,7 +23,7 @@ export const routes: Routes = [
     },
     {
         path: '',
-        redirectTo: '/filmes',
+        redirectTo: '/filmes/now_playing',
         pathMatch: 'full'
     },
     {

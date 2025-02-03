@@ -9,13 +9,14 @@ import { environment } from "../../environments/environment";
 })
 export class FilmeService{
     //filmes em cartaz
-    private apiURL = environment.apiUrl+'/3/movie/now_playing?language=pt-BR&region=BR';
+    nmLista:string = '';
+    private apiURL = environment.apiUrl;
 
     constructor(private http: HttpClient){}
-    getFilmes(): Observable<filme[]>{
+    getFilmes(nmLista:string): Observable<filme[]>{
         const headers = new HttpHeaders({ 'Authorization': 'Bearer '+environment.apiKey });
 
-        return this.http.get<filme[]>(this.apiURL, { headers }).pipe(map((response: any) => response.results));
+        return this.http.get<filme[]>(this.apiURL+ '/3/movie/'+nmLista+'?language=pt-BR&region=BR', { headers }).pipe(map((response: any) => response.results));
     }
 
     

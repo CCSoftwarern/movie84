@@ -1,20 +1,21 @@
 <div class="mt-4 border border-dark-subtle">
-    
-    <div class="list-group py-2 mx-3">
-        <h4 class="fonteSessao">Comentários</h4>
-       @for (comentario of comentarios; track comentario.id) {
-        <a class="list-group-item list-group-item-dark mt-1" aria-current="true">
-            <div class="d-flex w-100 justify-content-between">
-              <h5 class="mb-1">{{comentario.nmPessoa}}</h5>
-              <small>3 days ago</small>
-            </div>
-            <p class="mb-1">{{comentario.comentario}}</p>
-            <small>And some small print.</small>
-          </a>
-       } @empty {
-        <p class="msgs">Não há comentário até o momento.</p>
-        }
-        
-      </div>
+  <div class="list-group py-2 mx-3">
+    <h4 class="fonteSessao">Comentários</h4>
+    @for (comentario of comentarios; track comentario.id) {
+      <a class="list-group-item list-group-item-dark mt-1" aria-current="true">
+        <div class="d-flex w-100 justify-content-between">
+          <div class="d-flex align-items-center ">
+            <!-- Avatar do comentário -->
+            <img src="https://imebehavioralhealth.com/wp-content/uploads/2021/10/user-icon-placeholder-1.png" alt="Avatar" class="rounded-circle" style="width: 40px; height: 40px; object-fit: cover; margin-right: 10px;">
+            <h5 class="mb-1">{{comentario.nmPessoa}}</h5>
+          </div>
+          <small>{{ comentario.created_at | date:'dd/MM/yyyy HH:mm:ss' }}</small>
+        </div>
+        <p class="mb-1">{{comentario.comentario}}</p>
+      </a>
+    } @empty {
+      <p class="msgs">Não há comentário até o momento.</p>
+    }
+  </div>
 </div>
 

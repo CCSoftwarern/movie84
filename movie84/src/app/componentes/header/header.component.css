@@ -9,4 +9,18 @@
   
 }
 
+/* Efeito de hover nos itens do menu */
+.navbar-nav .nav-item .nav-link:hover {
+  background-color: #28a745; /* Cor de fundo ao passar o mouse (cor de fundo verde) */
+  color: white; /* Cor do texto ao passar o mouse (em branco) */
+  border-radius: 5px; /* Deixa os cantos arredondados */
+}
+
+/* Efeito de hover nos itens do dropdown */
+.navbar-nav .nav-item .dropdown-menu .dropdown-item:hover {
+  background-color: #28a745; /* Cor de fundo ao passar o mouse (cor de fundo verde) */
+  color: white; /* Cor do texto ao passar o mouse (em branco) */
+  border-radius: 5px; /* Deixa os cantos arredondados */
+}
+
   

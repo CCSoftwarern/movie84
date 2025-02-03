@@ -1,27 +1,42 @@
-<nav class="navbar navbar-expand-lg bg-success navbar-dark shadow sticky-top"  >
-    <div class="container-fluid">
-      <a class="navbar-brand" routerLink="/filmes">
-        <img alt="Movie84" src="assets/logo.png" class="navbar-icon">
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link fontemenu" aria-current="page" routerLink="/filmes">Filmes</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link fontemenu"  routerLink="/series" >Series</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link fontemenu" routerLink="/celebridades">Celebriades</a>
-          </li>
-        </ul>
-        <form class="d-flex" role="search" >
-          <input class="form-control me-2" type="search" placeholder="Pesquisar por filme" aria-label="Search">
-          <button class="btn btn-success fontemenu" type="submit">Pesquisar</button>
-        </form>
-      </div>
+<nav class="navbar navbar-expand-lg bg-success navbar-dark shadow sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" routerLink="/filmes">
+      <img alt="Movie84" src="assets/logo.png" class="navbar-icon">
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <!-- Dropdown para Filmes -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle fontemenu" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Filmes
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" routerLink="/filmes/now_playing">Em cartaz</a></li>
+            <li><a class="dropdown-item" routerLink="/filmes/popular">Popular</a></li>
+            <li><a class="dropdown-item" routerLink="/filmes/top_rated">Melhor avaliado</a></li>
+            <li><a class="dropdown-item" routerLink="/filmes/upcoming">Por vir</a></li>
+          </ul>
+        </li>
+
+        <!-- Link de Séries -->
+        <li class="nav-item">
+          <a class="nav-link fontemenu" routerLink="/series">Séries</a>
+        </li>
+
+        <!-- Link de Celebridades -->
+        <li class="nav-item">
+          <a class="nav-link fontemenu" routerLink="/celebridades">Celebridades</a>
+        </li>
+      </ul>
+      
+      <!-- Formulário de pesquisa -->
+      <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Pesquisar por filme" aria-label="Search">
+        <button class="btn btn-success fontemenu" type="submit">Pesquisar</button>
+      </form>
     </div>
-  </nav>
+  </div>
+</nav>

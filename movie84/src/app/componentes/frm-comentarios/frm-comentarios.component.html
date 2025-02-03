@@ -1,9 +1,39 @@
 <div class="mt-4 border border-dark-subtle">
-    <form [formGroup]="comentariosForm" (ngSubmit)="onSubmit()">
-        <div>
-            <label for="name">Nome</label>
-            <input type="text" formControlName="name"/>
+
+    <form class="py-2 mx-3" [formGroup]="comentariosForm" (ngSubmit)="onSubmit()">
+        <div class="mb-3">
+          <label for="nome" class="form-label fonteSessao">Nome</label>
+          <input 
+            type="text" 
+            id="nome" 
+            formControlName="nome" 
+            class="form-control" 
+            placeholder="Digite seu nome" 
+            required 
+          />
         </div>
-        <button type="submit">Cadastrar</button>
-    </form>
+      
+        <div class="mb-3">
+          <label for="comentario" class="form-label fonteSessao">Comentário</label>
+          <textarea 
+            id="comentario" 
+            formControlName="comentario" 
+            class="form-control" 
+            rows="4" 
+            placeholder="Digite seu comentário" 
+            required
+          ></textarea>
+        </div>
+      
+        <button type="submit" [disabled]="!comentariosForm.valid" class="btn btn-primary w-100 mt-3">
+          Enviar
+        </button>
+      </form>
+
+
+
 </div>
+
+  
+
+
