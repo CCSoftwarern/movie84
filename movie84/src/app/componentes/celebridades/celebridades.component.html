@@ -1,1 +1,38 @@
-<p>celebridades works!</p>
+
+
+<div class="container mt-6">
+    <p class="fonteSessao mt-5">Celebridades</p>
+  </div>
+  <div class="container">
+    <div class="g-2">
+    </div>
+  
+    @if (celebridades !=null) {
+    <div class="row row-cols-1 row-cols-md-6 g-4">
+      @for (item of celebridades; track item.id) {
+      <div class="col ">
+        <div class="card h-100 shadow animate__animated animate__fadeIn">
+          <a >
+            <img [src]="'https://image.tmdb.org/t/p/w500/'+item.profile_path"
+              class="card-img-top" alt="...">
+            <span class="badge badge-custom rounded-pill text-bg-warning">Pop. {{item.popularity}}</span>
+          </a>
+          <div class="card-body">
+            <h5 class="card-title">{{ item.name }}</h5>
+            <p class="card-text .fs-6 text-truncate">{{item.known_for_department}}</p>
+          </div>
+        </div>
+      </div>
+    } 
+  
+  </div>
+  
+    }
+    @if(hasError){
+      <app-alert-error  />
+    }
+    
+    @if (isLoading) {
+      <app-loading/>
+    }
+  

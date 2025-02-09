@@ -1,3 +1,4 @@
+@if (comentarios !=null) {
 <div class="mt-4 border border-dark-subtle">
   <div class="list-group py-2 mx-3">
     <h4 class="fonteSessao">Comentários</h4>
@@ -17,5 +18,13 @@
       <p class="msgs">Não há comentário até o momento.</p>
     }
   </div>
-</div>
+</div>}
+@if(hasError){
+  <app-alert-error  />
+}
+
+@if (isLoading) {
+  <app-loading/>
+}
+
 

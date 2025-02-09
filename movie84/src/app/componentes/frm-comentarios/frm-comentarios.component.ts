@@ -1,5 +1,5 @@
 import { Component,  } from '@angular/core';
-import {FormsModule, ReactiveFormsModule, FormGroup, FormControl, Validator, Validators} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule, FormGroup, FormControl, Validators} from '@angular/forms';
 import { ComentariosService } from '../../services/comentarios.service';
 import { ActivatedRoute, Route, Router } from '@angular/router';
 import { MessageService } from 'primeng/api';

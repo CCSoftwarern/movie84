@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg bg-success navbar-dark shadow sticky-top">
   <div class="container-fluid">
     <a class="navbar-brand" routerLink="/filmes">
-      <img alt="Movie84" src="assets/logo.png" class="navbar-icon">
+      <img alt="Movie84" src="assets/logo2.png" class="navbar-icon">
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -22,8 +22,16 @@
         </li>
 
         <!-- Link de Séries -->
-        <li class="nav-item">
-          <a class="nav-link fontemenu" routerLink="/series">Séries</a>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle fontemenu" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Series
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" routerLink="/series/airing_today">Indo ao ar hoje</a></li>
+            <li><a class="dropdown-item" routerLink="/series/on_the_air">No ar</a></li>
+            <li><a class="dropdown-item" routerLink="/series/popular">Popular</a></li>
+            <li><a class="dropdown-item" routerLink="/series/top_rated">Mais bem avaliados</a></li>
+          </ul>
         </li>
 
         <!-- Link de Celebridades -->
@@ -33,10 +41,11 @@
       </ul>
       
       <!-- Formulário de pesquisa -->
-      <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Pesquisar por filme" aria-label="Search">
-        <button class="btn btn-success fontemenu" type="submit">Pesquisar</button>
+      <form [formGroup]="frmPesquisa" class="d-flex" role="search" (ngSubmit)="onSubmit()">
+        <input class="form-control me-2" type="text" placeholder="Pesquisar por filme" aria-label="Search" formControlName="nmPesquisa">
+        <button class="btn btn-success fontemenu" [disabled]="!frmPesquisa.valid" type="submit">Pesquisar</button>
       </form>
+      
     </div>
   </div>
 </nav>

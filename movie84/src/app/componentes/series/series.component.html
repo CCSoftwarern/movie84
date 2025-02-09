@@ -1,1 +1,36 @@
-<p>series works!</p>
+
+
+@if (series != null) {
+  <div class="container mt-6">
+    <p class="fonteSessao mt-5">Series > {{nmListaTraduzido}}</p>
+  </div>
+  <div class="container">
+    <div class="g-2">
+    </div>
+    <div class="row row-cols-1 row-cols-md-6 g-4">
+      @for (item of series; track item.id) {
+      <div class="col ">
+        <div class="card h-100 shadow animate__animated animate__fadeIn">
+          <a [routerLink]="'/detalhesseries/'+item.id"><img [src]="'https://image.tmdb.org/t/p/w500/'+item.poster_path"
+              class="card-img-top" alt="...">
+            <span class="badge badge-custom rounded-pill text-bg-warning">IMDB {{item.vote_average}}</span>
+          </a>
+          <div class="card-body">
+            <h5 class="card-title">{{ item.name }}</h5>
+            <p class="card-text .fs-6 text-truncate">{{ item.overview }}</p>
+          </div>
+        </div>
+      </div>
+      } @empty {
+      <p class="fonteSessao">Nenhuma serie</p>
+      }
+    </div>
+  </div>
+}
+@if(hasError){
+  <app-alert-error  />
+}
+
+@if (isLoading) {
+  <app-loading/>
+}

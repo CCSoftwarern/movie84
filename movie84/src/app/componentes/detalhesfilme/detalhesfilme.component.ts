@@ -4,6 +4,7 @@ import { filme } from '../../interfaces/filme';
 import { DetalhefilmeService } from '../../services/detalhefilme.service';
 import { FrmComentariosComponent } from "../frm-comentarios/frm-comentarios.component";
 import { ListaComentariosComponent } from "../lista-comentarios/lista-comentarios.component";
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-detalhesfilme',
@@ -17,9 +18,10 @@ export class DetalhesfilmeComponent implements OnInit {
   detalheFilme: filme | undefined;
 
   idFilme: string | null= '0';
+  tipo: string ='';
 
 
-  constructor(private servico: DetalhefilmeService, private route: ActivatedRoute){}
+  constructor(private servico: DetalhefilmeService, private route: ActivatedRoute, private location: Location){}
   
 
   ngOnInit(): void {
@@ -52,5 +54,8 @@ export class DetalhesfilmeComponent implements OnInit {
     });
   }
   
+  goBack(): void {
+    this.location.back(); // Navega para a página anterior
+  }
 
 }

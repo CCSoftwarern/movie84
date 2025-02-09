@@ -4,10 +4,12 @@ import { ComentariosService } from '../../services/comentarios.service';
 import { ActivatedRoute, Route } from '@angular/router';
 import { DatePipe } from '@angular/common';
 import { CommonModule } from '@angular/common';
+import { AlertErrorComponent } from "../alert-error/alert-error.component";
+import { LoadingComponent } from "../loading/loading.component";
 
 @Component({
   selector: 'app-lista-comentarios',
-  imports: [CommonModule],
+  imports: [CommonModule, AlertErrorComponent, LoadingComponent],
   templateUrl: './lista-comentarios.component.html',
   styleUrl: './lista-comentarios.component.css',
   providers: [DatePipe]
@@ -16,6 +18,8 @@ export class ListaComentariosComponent implements OnInit {
 
    comentarios: Comentario[] = [];
    idfilme: string | null= '0';
+hasError: any;
+isLoading: any;
     
   
     constructor(private servico: ComentariosService, private route: ActivatedRoute, private datePipe: DatePipe){}

@@ -8,7 +8,7 @@ import { environment } from "../../environments/environment";
     providedIn: 'root'
 })
 export class FilmeService{
-    //filmes em cartaz
+
     nmLista:string = '';
     private apiURL = environment.apiUrl;
 
@@ -18,7 +18,6 @@ export class FilmeService{
 
         return this.http.get<filme[]>(this.apiURL+ '/3/movie/'+nmLista+'?language=pt-BR&region=BR', { headers }).pipe(map((response: any) => response.results));
     }
-
     
 
 

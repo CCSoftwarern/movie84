@@ -4,6 +4,8 @@ import { DetalhesfilmeComponent } from './componentes/detalhesfilme/detalhesfilm
 import { CardfilmesComponent } from './componentes/cardfilmes/cardfilmes.component';
 import { CelebridadesComponent } from './componentes/celebridades/celebridades.component';
 import { SeriesComponent } from './componentes/series/series.component';
+import { PesquisafilmeComponent } from './componentes/pesquisafilme/pesquisafilme.component';
+import { DetalheserieComponent } from './componentes/detalheserie/detalheserie.component';
 
 
 export const routes: Routes = [
@@ -23,7 +25,7 @@ export const routes: Routes = [
     },
     {
         path: '',
-        redirectTo: '/filmes/now_playing',
+        redirectTo: 'filmes/now_playing',
         pathMatch: 'full'
     },
     {
@@ -31,8 +33,16 @@ export const routes: Routes = [
         component: CelebridadesComponent
     },
     {
-        path: 'series',
+        path: 'series/:nmlistaSeries',
         component: SeriesComponent
+    },
+    {
+        path: 'pesquisafilme/:nmPesquisa',
+        component: PesquisafilmeComponent
+    },
+    {
+        path: 'detalhesseries/:id',
+        component: DetalheserieComponent
     }
 
 
