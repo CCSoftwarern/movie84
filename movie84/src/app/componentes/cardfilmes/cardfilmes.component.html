@@ -29,11 +29,11 @@
           <p class="card-text .fs-6 text-truncate">{{ item.overview }}</p>
         </div>
       </div>
+
     </div>
   } 
-
+  <p-scrolltop  [threshold]="100" [buttonProps]="{ severity: 'contrast', raised: true, rounded: true }" />
 </div>
-
   }
   @if(hasError){
     <app-alert-error  />

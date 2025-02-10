@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { DetalhefilmeService } from '../../services/detalhefilme.service';
-import { SeriesService } from '../../services/series.service';
 import { Series } from '../../interfaces/series';
 import { ActivatedRoute } from '@angular/router';
 import { ListaComentariosComponent } from "../lista-comentarios/lista-comentarios.component";
 import { FrmComentariosComponent } from "../frm-comentarios/frm-comentarios.component";
 import { Location } from '@angular/common';
+import { ScrollTop } from 'primeng/scrolltop';
 
 @Component({
   selector: 'app-detalheserie',
-  imports: [ListaComentariosComponent, FrmComentariosComponent],
+  imports: [ListaComentariosComponent, FrmComentariosComponent, ScrollTop],
   templateUrl: './detalheserie.component.html',
   styleUrl: './detalheserie.component.css'
 })
@@ -41,13 +41,14 @@ export class DetalheserieComponent implements OnInit{
      this.servico.getDetalheSeries(idSerie).subscribe({
        next: (dados: Series) => {
          this.detalheSerie = dados;
-         console.log(dados);
+       //  console.log(dados);
        },
        error: (erro) => {
-         console.log('Erro ao buscar detalhes do filme:', erro);
+        // console.log('Erro ao buscar detalhes do filme:', erro);
+        alert('Erro na requisição: '+erro);
        },
        complete: () => {
-         console.log('Chamada finalizada');
+        // console.log('Chamada finalizada');
        }
      });
    }

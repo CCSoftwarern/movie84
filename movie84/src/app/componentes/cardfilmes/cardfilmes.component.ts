@@ -5,13 +5,14 @@ import { ActivatedRoute, RouterLink } from '@angular/router';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { AlertErrorComponent } from '../alert-error/alert-error.component';
 import { LoadingComponent } from "../loading/loading.component";
+import { ScrollTop } from 'primeng/scrolltop';
 
 
 
 @Component({
   selector: 'app-cardfilmes',
   standalone: true,
-  imports: [RouterLink, ProgressSpinnerModule, AlertErrorComponent, LoadingComponent],
+  imports: [RouterLink, ProgressSpinnerModule, AlertErrorComponent, LoadingComponent, ScrollTop],
   templateUrl: './cardfilmes.component.html',
   styleUrls: ['./cardfilmes.component.css'],
 })

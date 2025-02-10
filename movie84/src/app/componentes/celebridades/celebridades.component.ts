@@ -3,13 +3,17 @@ import { Celebridade } from '../../interfaces/celebridade';
 import { CelebridadesService } from '../../services/celebridades.service';
 import { AlertErrorComponent } from '../alert-error/alert-error.component';
 import { LoadingComponent } from "../loading/loading.component";
+import { ScrollTop } from 'primeng/scrolltop';
+import { Toast } from 'primeng/toast';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-celebridades',
   standalone: true,
-  imports: [AlertErrorComponent, LoadingComponent],
+  imports: [AlertErrorComponent, LoadingComponent, ScrollTop, Toast],
   templateUrl: './celebridades.component.html',
-  styleUrl: './celebridades.component.css'
+  styleUrl: './celebridades.component.css',
+  providers: [MessageService]
 })
 export class CelebridadesComponent  implements OnInit{
 [x: string]: any;
@@ -17,7 +21,7 @@ celebridades: Celebridade[] = [];
 isLoading = false; 
 hasError: any;
 
-constructor(private servico: CelebridadesService){}
+constructor(private servico: CelebridadesService, private messageService: MessageService){}
 
   ngOnInit(): void {
 
@@ -29,16 +33,19 @@ constructor(private servico: CelebridadesService){}
     this.servico.getCelebridades().subscribe({
       next: (dados) => {
         this.celebridades= dados;
-        console.log(dados);
+       // console.log(dados);
       },
       error: (erro) => {
-        console.log(erro);
+      //  console.log(erro);
+        alert('Erro na requisição: '+erro);
+
       },
       complete: () => {
         this.isLoading = false;
-        console.log('Chamada finalizada');
+       // console.log('Chamada finalizada');
       }
     })
   }
+
 
 }

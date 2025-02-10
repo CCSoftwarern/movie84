@@ -6,10 +6,11 @@ import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { AlertErrorComponent } from '../alert-error/alert-error.component';
 import { LoadingComponent } from "../loading/loading.component";
 import { Location } from '@angular/common';
+import { ScrollTop } from 'primeng/scrolltop';
 
 @Component({
   selector: 'app-pesquisafilme',
-  imports: [RouterLink, ProgressSpinnerModule, AlertErrorComponent, LoadingComponent],
+  imports: [RouterLink, ProgressSpinnerModule, AlertErrorComponent, LoadingComponent,  ScrollTop],
   templateUrl: './pesquisafilme.component.html',
   styleUrl: './pesquisafilme.component.css'
 })

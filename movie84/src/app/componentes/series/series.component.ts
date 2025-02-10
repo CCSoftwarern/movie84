@@ -4,11 +4,12 @@ import { SeriesService } from '../../services/series.service';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { AlertErrorComponent } from "../alert-error/alert-error.component";
 import { LoadingComponent } from "../loading/loading.component";
+import { ScrollTop } from 'primeng/scrolltop';
 
 @Component({
   selector: 'app-series',
   standalone: true,
-  imports: [RouterLink, AlertErrorComponent, LoadingComponent],
+  imports: [RouterLink, AlertErrorComponent, LoadingComponent, ScrollTop],
   templateUrl: './series.component.html',
   styleUrl: './series.component.css'
 })

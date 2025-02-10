@@ -5,11 +5,12 @@ import { DetalhefilmeService } from '../../services/detalhefilme.service';
 import { FrmComentariosComponent } from "../frm-comentarios/frm-comentarios.component";
 import { ListaComentariosComponent } from "../lista-comentarios/lista-comentarios.component";
 import { Location } from '@angular/common';
+import { ScrollTop } from 'primeng/scrolltop';
 
 @Component({
   selector: 'app-detalhesfilme',
   standalone: true,
-  imports: [RouterModule, FrmComentariosComponent, ListaComentariosComponent],
+  imports: [RouterModule, FrmComentariosComponent, ListaComentariosComponent, ScrollTop],
   templateUrl: './detalhesfilme.component.html',
   styleUrls: ['./detalhesfilme.component.css']
 })
