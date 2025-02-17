@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Series } from '../../interfaces/series';
+import { Series } from '../../interfaces/serie';
 import { SeriesService } from '../../services/series.service';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { AlertErrorComponent } from "../alert-error/alert-error.component";

@@ -6,11 +6,12 @@ import { FrmComentariosComponent } from "../frm-comentarios/frm-comentarios.comp
 import { ListaComentariosComponent } from "../lista-comentarios/lista-comentarios.component";
 import { Location } from '@angular/common';
 import { ScrollTop } from 'primeng/scrolltop';
+import { DatePipe } from  '@angular/common';
 
 @Component({
   selector: 'app-detalhesfilme',
   standalone: true,
-  imports: [RouterModule, FrmComentariosComponent, ListaComentariosComponent, ScrollTop],
+  imports: [RouterModule, FrmComentariosComponent, ListaComentariosComponent, ScrollTop, DatePipe],
   templateUrl: './detalhesfilme.component.html',
   styleUrls: ['./detalhesfilme.component.css']
 })

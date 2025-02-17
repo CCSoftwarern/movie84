@@ -11,6 +11,7 @@
   @if (filmes !=null) {
   <div class="row row-cols-1 row-cols-md-6 g-4">
     @for (item of filmes; track item.id) {
+
     <div class="col ">
       <div class="card h-100 shadow animate__animated animate__fadeIn">
         <a [routerLink]="'/detalhes/'+item.id">

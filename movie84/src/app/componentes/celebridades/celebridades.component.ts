@@ -4,16 +4,15 @@ import { CelebridadesService } from '../../services/celebridades.service';
 import { AlertErrorComponent } from '../alert-error/alert-error.component';
 import { LoadingComponent } from "../loading/loading.component";
 import { ScrollTop } from 'primeng/scrolltop';
-import { Toast } from 'primeng/toast';
-import { MessageService } from 'primeng/api';
+
 
 @Component({
   selector: 'app-celebridades',
   standalone: true,
-  imports: [AlertErrorComponent, LoadingComponent, ScrollTop, Toast],
+  imports: [AlertErrorComponent, LoadingComponent, ScrollTop],
   templateUrl: './celebridades.component.html',
   styleUrl: './celebridades.component.css',
-  providers: [MessageService]
+
 })
 export class CelebridadesComponent  implements OnInit{
 [x: string]: any;
@@ -21,7 +20,7 @@ celebridades: Celebridade[] = [];
 isLoading = false; 
 hasError: any;
 
-constructor(private servico: CelebridadesService, private messageService: MessageService){}
+constructor(private servico: CelebridadesService){}
 
   ngOnInit(): void {
 

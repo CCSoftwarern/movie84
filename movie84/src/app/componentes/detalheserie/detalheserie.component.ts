@@ -1,15 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { DetalhefilmeService } from '../../services/detalhefilme.service';
-import { Series } from '../../interfaces/series';
+import { Series } from '../../interfaces/serie';
 import { ActivatedRoute } from '@angular/router';
 import { ListaComentariosComponent } from "../lista-comentarios/lista-comentarios.component";
 import { FrmComentariosComponent } from "../frm-comentarios/frm-comentarios.component";
 import { Location } from '@angular/common';
 import { ScrollTop } from 'primeng/scrolltop';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-detalheserie',
-  imports: [ListaComentariosComponent, FrmComentariosComponent, ScrollTop],
+  imports: [ListaComentariosComponent, FrmComentariosComponent, ScrollTop, DatePipe],
   templateUrl: './detalheserie.component.html',
   styleUrl: './detalheserie.component.css'
 })

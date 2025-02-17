@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { map,Observable } from "rxjs";
-import { Series } from "../interfaces/series";
+import { Series } from "../interfaces/serie";
 import { environment } from "../../environments/environment";
 
 @Injectable({

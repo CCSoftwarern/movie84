@@ -26,6 +26,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh; /* Ajuste conforme necessário */
-  font-size: 1.5em; /* Ajuste conforme necessário */
+  height: 100vh; 
+  font-size: 2em; 
 }

@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { map,Observable } from "rxjs";
 import { filme } from "../interfaces/filme";
 import { environment } from "../../environments/environment";
-import { Series } from '../interfaces/series';
+import { Series } from '../interfaces/serie';
 
 @Injectable({
   providedIn: 'root'
