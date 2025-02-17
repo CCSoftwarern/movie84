@@ -1,6 +1,6 @@
 # movie84
 
-Esse projeto demonstra a utilização do Angular19 na criação de um aplicativo web que faz consultas com a api da TMDB (The Movie Database) para consulta de filmes, series e personalidades e Backend da Xano Para armazenar os comentários dos visitantes.
+Este projeto ilustra a utilização do Angular 19 para a criação de um aplicativo web que consulta a API da TMDB (The Movie Database). O aplicativo permite a busca e visualização de informações sobre filmes, séries e personalidades. Além disso, utilizamos o backend da Xano para armazenar os comentários dos visitantes.
 
 ## Começando
 
@@ -32,7 +32,7 @@ Acesse para mais informações: https://developer.themoviedb.org/docs/getting-st
 ```shell
 Adicione suas chaves de api no arquivo em environment.ts dentro da pasta environments
     apiUrl: 'https://api.themoviedb.org',
-    apiKey:  'sua api TMDB aqui',
+    apiKey:  'sua apikey TMDB aqui',
     apiXano: 'sua api xano aqui'
 ```
 
