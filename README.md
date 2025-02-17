@@ -1,4 +1,4 @@
-# movie84
+# Movie84
 
 Este projeto ilustra a utilização do Angular 19 para a criação de um aplicativo web que consulta a API da TMDB (The Movie Database). O aplicativo permite a busca e visualização de informações sobre filmes, séries e personalidades. Além disso, utilizamos o backend da Xano para armazenar os comentários dos visitantes.
 
