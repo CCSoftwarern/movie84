@@ -29,13 +29,17 @@
     } 
     <p-scrolltop  [threshold]="100" [buttonProps]="{ severity: 'contrast', raised: true, rounded: true }" />
   </div>
+   }
+  @if(hasError){
+    <app-alert-error  />
+  }
   
-    }
-    @if(hasError){
-      <app-alert-error  />
-    }
-    
-    @if (isLoading) {
-      <app-loading/>
-    }
+  @if (isLoading) {
+    <app-loading/>
+  }
+
+  @if (msmErro){
+    <app-alert-error  />
+
+  }
   

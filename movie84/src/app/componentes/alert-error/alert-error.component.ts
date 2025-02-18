@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 
+
 @Component({
   selector: 'app-alert-error',
   imports: [],
@@ -7,5 +8,9 @@ import { Component } from '@angular/core';
   styleUrl: './alert-error.component.css'
 })
 export class AlertErrorComponent {
+
+  atualizarPagina(): void {
+    window.location.reload(); // Navega para a página anterior
+  }
 
 }

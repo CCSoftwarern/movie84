@@ -20,6 +20,7 @@ export class PesquisafilmeComponent implements OnInit{
   nmPesquisa: string | null= '';
   isLoading = false; 
   hasError: any;
+  msmErro: string = '';
 
    constructor(private servico: BuscafilmeService, private route: ActivatedRoute, private location: Location){}
 
@@ -38,18 +39,21 @@ export class PesquisafilmeComponent implements OnInit{
 
 
   onGetBuscaFilmes(nmPesquisa:string): void {
+    this.filmes = [];
     this.isLoading = true;
     this.servico.getBuscaFilmesFilmes(nmPesquisa).subscribe({
       next: (dados) => {
         this.filmes = dados;
-        console.log(dados);
+        // console.log(dados);
       },
       error: (erro) => {
         this.isLoading = false;
+        this.msmErro = erro;
+        
       },
       complete: () => {
         this.isLoading = false;
-        console.log('Chamada finalizada');
+        // console.log('Chamada finalizada');
       }
     })
   }

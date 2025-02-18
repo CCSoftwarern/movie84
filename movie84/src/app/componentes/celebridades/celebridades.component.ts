@@ -7,6 +7,7 @@ import { ScrollTop } from 'primeng/scrolltop';
 import { NgOptimizedImage } from '@angular/common';
 
 
+
 @Component({
   selector: 'app-celebridades',
   standalone: true,
@@ -20,6 +21,7 @@ export class CelebridadesComponent  implements OnInit{
 celebridades: Celebridade[] = [];
 isLoading = false; 
 hasError: any;
+msmErro: string = '';
 
 constructor(private servico: CelebridadesService){}
 
@@ -37,7 +39,8 @@ constructor(private servico: CelebridadesService){}
       },
       error: (erro) => {
       //  console.log(erro);
-        alert('Erro na requisição: '+erro);
+        this.isLoading = false;
+        this.msmErro = erro;
 
       },
       complete: () => {

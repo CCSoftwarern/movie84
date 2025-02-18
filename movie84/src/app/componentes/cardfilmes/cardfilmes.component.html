@@ -9,6 +9,9 @@
   </div>
 
   @if (filmes !=null) {
+
+    
+    
   <div class="row row-cols-1 row-cols-md-6 g-4">
     @for (item of filmes; track item.id) {
 
@@ -17,7 +20,7 @@
         <a [routerLink]="'/detalhes/'+item.id">
           @if (item.poster_path != null) {
             <img [ngSrc]="'https://image.tmdb.org/t/p/w500/'+item.poster_path"
-            width="300"
+            width="200"
             height="300"
             loading="lazy"
             class="card-img-top" alt="...">
@@ -48,6 +51,11 @@
   
   @if (isLoading) {
     <app-loading/>
+  }
+
+  @if (msmErro){
+    <app-alert-error  />
+
   }
 
 

@@ -7,54 +7,62 @@ import { FrmComentariosComponent } from "../frm-comentarios/frm-comentarios.comp
 import { Location, NgOptimizedImage } from '@angular/common';
 import { ScrollTop } from 'primeng/scrolltop';
 import { DatePipe } from '@angular/common';
+import { AlertErrorComponent } from '../alert-error/alert-error.component';
+import { LoadingComponent } from "../loading/loading.component";
 
 @Component({
   selector: 'app-detalheserie',
-  imports: [ListaComentariosComponent, FrmComentariosComponent, ScrollTop, DatePipe, NgOptimizedImage],
+  imports: [ListaComentariosComponent, FrmComentariosComponent, ScrollTop, DatePipe, NgOptimizedImage, AlertErrorComponent, LoadingComponent],
   templateUrl: './detalheserie.component.html',
   styleUrl: './detalheserie.component.css'
 })
-export class DetalheserieComponent implements OnInit{
+export class DetalheserieComponent implements OnInit {
   [x: string]: any;
   detalheSerie: Series | undefined;
- 
-   idSerie: string | null= '0';
-   tipo: string ='';
- 
- 
-   constructor(private servico: DetalhefilmeService, private route: ActivatedRoute, private location: Location){}
-   
- 
-   ngOnInit(): void {
-     // Para obter o parâmetro de idFilme da URL
-     this.route.paramMap.subscribe((params) => {
-       this.idSerie = params.get('id'); // Obtém o id da rota
-       if (this.idSerie) {
-         // Se o idFserie for válido, faz a requisição
-         this.onGetDetalhesSeries(this.idSerie);
-       } else {
-         console.log('ID da serie não encontrado.');
-       }
-     });
-   }
-  
-   onGetDetalhesSeries(idSerie: string): void {
-     this.servico.getDetalheSeries(idSerie).subscribe({
-       next: (dados: Series) => {
-         this.detalheSerie = dados;
-       //  console.log(dados);
-       },
-       error: (erro) => {
-        // console.log('Erro ao buscar detalhes do filme:', erro);
-        alert('Erro na requisição: '+erro);
-       },
-       complete: () => {
-        // console.log('Chamada finalizada');
-       }
-     });
-   }
 
-   goBack(): void {
+  idSerie: string | null = '0';
+  tipo: string = '';
+  isLoading = false;
+  hasError: any;
+  msmErro: string = '';
+
+
+  constructor(private servico: DetalhefilmeService, private route: ActivatedRoute, private location: Location) { }
+
+
+  ngOnInit(): void {
+    // Para obter o parâmetro de idFilme da URL
+    this.route.paramMap.subscribe((params) => {
+      this.idSerie = params.get('id'); // Obtém o id da rota
+      if (this.idSerie) {
+        // Se o idFserie for válido, faz a requisição
+        this.onGetDetalhesSeries(this.idSerie);
+      } else {
+        console.log('ID da serie não encontrado.');
+      }
+    });
+  }
+
+  onGetDetalhesSeries(idSerie: string): void {
+    this.isLoading = true;
+    this.servico.getDetalheSeries(idSerie).subscribe({
+      next: (dados: Series) => {
+        this.detalheSerie = dados;
+        //  console.log(dados);
+      },
+      error: (erro) => {
+        // console.log('Erro ao buscar detalhes do filme:', erro);
+        this.isLoading = false;
+        this.msmErro = erro;
+      },
+      complete: () => {
+        // console.log('Chamada finalizada');
+        this.isLoading = false;
+      }
+    });
+  }
+
+  goBack(): void {
     this.location.back(); // Navega para a página anterior
   }
 

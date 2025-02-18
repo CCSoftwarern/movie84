@@ -67,12 +67,12 @@ export class CardfilmesComponent implements OnInit {
         this.filmes = dados;
         //console.log(dados);
       },
-      error: () => {
+      error: (erro) => {
         //console.log(erro);
         this.isLoading = false;
-        alert('Erro a realizara requisição, tente novamente.');
-
-   
+        this.msmErro = erro;
+            
+        //alert('Erro a realizara requisição, tente novamente.');
       },
       complete: () => {
         this.isLoading = false;
@@ -81,5 +81,6 @@ export class CardfilmesComponent implements OnInit {
       }
     })
   }
+
 
 }

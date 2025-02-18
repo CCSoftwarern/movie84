@@ -16,14 +16,15 @@ import { ScrollTop } from 'primeng/scrolltop';
 export class SeriesComponent implements OnInit {
   title = 'Movie84';
   series: Series[] = [];
-  nmListaSeries: string | null= '';
+  nmListaSeries: string | null = '';
   nmListaTraduzido: string = '';
-hasError: any;
-isLoading: any;
+  hasError: any;
+  isLoading = false;
+  msmErro: string = '';
 
-  
 
-  constructor(private servico: SeriesService, private route: ActivatedRoute){}
+
+  constructor(private servico: SeriesService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.route.paramMap.subscribe((params) => {
@@ -33,37 +34,41 @@ isLoading: any;
         this.onGetSeries(this.nmListaSeries);
         switch (this.nmListaSeries) {
           case 'airing_today':
-            this.nmListaTraduzido="Indo ao ar hoje";
+            this.nmListaTraduzido = "Indo ao ar hoje";
             break;
           case 'on_the_air':
-            this.nmListaTraduzido="no ar";
+            this.nmListaTraduzido = "no ar";
             break;
           case 'popular':
-            this.nmListaTraduzido="Popular";
+            this.nmListaTraduzido = "Popular";
             break;
           case 'top_rated':
-            this.nmListaTraduzido="Melhor avaliado";
-          break;
+            this.nmListaTraduzido = "Melhor avaliado";
+            break;
           default:
-            this.nmListaTraduzido="Não localizado";
+            this.nmListaTraduzido = "Não localizado";
         }
       } else {
-        this.nmListaTraduzido="Não localizado";
+        this.nmListaTraduzido = "Não localizado";
       }
     });
   }
 
-  onGetSeries(nmListaSeries:string): void {
+  onGetSeries(nmListaSeries: string): void {
+    this.isLoading = true;
     this.servico.getSeries(nmListaSeries).subscribe({
       next: (dados) => {
         this.series = dados;
-        console.log(dados);
+        //console.log(dados);
       },
       error: (erro) => {
-        console.log(erro);
+        // console.log(erro);
+        this.isLoading = false;
+        this.msmErro = erro;
       },
       complete: () => {
-        console.log('Chamada finalizada');
+        // console.log('Chamada finalizada');
+        this.isLoading = false;
       }
     })
   }

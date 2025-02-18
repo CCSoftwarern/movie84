@@ -7,20 +7,24 @@ import { ListaComentariosComponent } from "../lista-comentarios/lista-comentario
 import { Location, NgOptimizedImage } from '@angular/common';
 import { ScrollTop } from 'primeng/scrolltop';
 import { DatePipe } from  '@angular/common';
+import { AlertErrorComponent } from '../alert-error/alert-error.component';
+import { LoadingComponent } from "../loading/loading.component";
 
 @Component({
   selector: 'app-detalhesfilme',
   standalone: true,
-  imports: [RouterModule, FrmComentariosComponent, ListaComentariosComponent, ScrollTop, DatePipe, NgOptimizedImage],
+  imports: [RouterModule, FrmComentariosComponent, ListaComentariosComponent, ScrollTop, DatePipe, NgOptimizedImage, AlertErrorComponent, LoadingComponent],
   templateUrl: './detalhesfilme.component.html',
   styleUrls: ['./detalhesfilme.component.css']
 })
 export class DetalhesfilmeComponent implements OnInit {
 
   detalheFilme: filme | undefined;
-
   idFilme: string | null= '0';
   tipo: string ='';
+  hasError: any;
+  msmErro: string = '';
+  isLoading = false;
 
 
   constructor(private servico: DetalhefilmeService, private route: ActivatedRoute, private location: Location){}
@@ -42,16 +46,20 @@ export class DetalhesfilmeComponent implements OnInit {
 
 
   onGetDetalhesFilmes(idFilme: string): void {
+    this.isLoading = true;
     this.servico.getDetalheFilme(idFilme).subscribe({
       next: (dados: filme) => {
         this.detalheFilme = dados;
         console.log(dados);
       },
       error: (erro) => {
-        console.log('Erro ao buscar detalhes do filme:', erro);
+        // console.log('Erro ao buscar detalhes do filme:', erro);
+        this.msmErro = erro;
+        this.isLoading = false;
       },
       complete: () => {
-        console.log('Chamada finalizada');
+        // console.log('Chamada finalizada');
+        this.isLoading = false;
       }
     });
   }

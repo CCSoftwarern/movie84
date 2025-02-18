@@ -1,7 +1,7 @@
 
 
-
-<div class="container mt-6">
+  
+  <div class="container mt-6">
     <p class="fonteSessao mt-5">Foram encontrados {{filmes.length}} resultado(s) na busca por : {{nmPesquisa}}</p>
   </div>
   <div class="container">
@@ -17,13 +17,13 @@
             @if (item.poster_path != null) {
                 <img [ngSrc]="'https://image.tmdb.org/t/p/w500/'+item.poster_path"
                 width="300"
-                height="300"
+                height="270"
                 loading="lazy"
                 class="card-img-top" alt="...">
             } @else {                
                 <img [ngSrc]="'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQiUqGvs-Wgpbk4a8HcVMjOVeHJ7kiryV12xpX-WwjUty5NwqHlMTm4M1caosM6IYxkW9I&usqp=CAU'"
                 width="300"
-                height="300"
+                height="200"
                 loading="lazy"
                 class="card-img-top" alt="...">
 
@@ -49,4 +49,10 @@
     @if (isLoading) {
       <app-loading/>
     }
+
+    @if (msmErro){
+      <app-alert-error  />
+  
+    }
+  
   
