@@ -4,12 +4,13 @@ import { CelebridadesService } from '../../services/celebridades.service';
 import { AlertErrorComponent } from '../alert-error/alert-error.component';
 import { LoadingComponent } from "../loading/loading.component";
 import { ScrollTop } from 'primeng/scrolltop';
+import { NgOptimizedImage } from '@angular/common';
 
 
 @Component({
   selector: 'app-celebridades',
   standalone: true,
-  imports: [AlertErrorComponent, LoadingComponent, ScrollTop],
+  imports: [AlertErrorComponent, LoadingComponent, ScrollTop, NgOptimizedImage],
   templateUrl: './celebridades.component.html',
   styleUrl: './celebridades.component.css',
 

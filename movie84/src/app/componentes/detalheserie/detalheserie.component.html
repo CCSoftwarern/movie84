@@ -5,8 +5,11 @@
     <div class="row">
       <!-- Coluna da imagem -->
       <div class="col-md-4">
-        <img [src]="'https://image.tmdb.org/t/p/w500/'+detalheSerie?.poster_path" alt="Poster do filme"
-          class="img-fluid rounded shadow" />
+        <img [ngSrc]="'https://image.tmdb.org/t/p/w500/'+detalheSerie?.poster_path" alt="Poster do filme"
+        width="300"
+        height="300"
+        loading="lazy"
+        class="img-fluid rounded shadow" />
       </div>
   
       <!-- Coluna de informações do filme -->

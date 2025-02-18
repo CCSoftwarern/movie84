@@ -4,13 +4,13 @@ import { Series } from '../../interfaces/serie';
 import { ActivatedRoute } from '@angular/router';
 import { ListaComentariosComponent } from "../lista-comentarios/lista-comentarios.component";
 import { FrmComentariosComponent } from "../frm-comentarios/frm-comentarios.component";
-import { Location } from '@angular/common';
+import { Location, NgOptimizedImage } from '@angular/common';
 import { ScrollTop } from 'primeng/scrolltop';
 import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-detalheserie',
-  imports: [ListaComentariosComponent, FrmComentariosComponent, ScrollTop, DatePipe],
+  imports: [ListaComentariosComponent, FrmComentariosComponent, ScrollTop, DatePipe, NgOptimizedImage],
   templateUrl: './detalheserie.component.html',
   styleUrl: './detalheserie.component.css'
 })

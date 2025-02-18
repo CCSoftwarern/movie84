@@ -6,13 +6,15 @@ import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { AlertErrorComponent } from '../alert-error/alert-error.component';
 import { LoadingComponent } from "../loading/loading.component";
 import { ScrollTop } from 'primeng/scrolltop';
+import { NgOptimizedImage } from '@angular/common';
+
 
 
 
 @Component({
   selector: 'app-cardfilmes',
   standalone: true,
-  imports: [RouterLink, ProgressSpinnerModule, AlertErrorComponent, LoadingComponent, ScrollTop],
+  imports: [RouterLink, ProgressSpinnerModule, AlertErrorComponent, LoadingComponent, ScrollTop, NgOptimizedImage],
   templateUrl: './cardfilmes.component.html',
   styleUrls: ['./cardfilmes.component.css'],
 })
@@ -23,6 +25,7 @@ export class CardfilmesComponent implements OnInit {
   nmListaTraduzido: string = '';
   isLoading = false; 
   hasError: any;
+  msmErro: string = '';
   
 
   constructor(private servico: FilmeService, private route: ActivatedRoute){}
@@ -64,9 +67,12 @@ export class CardfilmesComponent implements OnInit {
         this.filmes = dados;
         //console.log(dados);
       },
-      error: (erro) => {
+      error: () => {
         //console.log(erro);
-        alert('Erro a realizara requisição, tente novamente. -' +erro)    
+        this.isLoading = false;
+        alert('Erro a realizara requisição, tente novamente.');
+
+   
       },
       complete: () => {
         this.isLoading = false;

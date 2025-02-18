@@ -13,8 +13,11 @@
       <div class="col ">
         <div class="card h-100 shadow animate__animated animate__fadeIn">
           <a >
-            <img [src]="'https://image.tmdb.org/t/p/w500/'+item.profile_path"
-              class="card-img-top" alt="...">
+            <img [ngSrc]="'https://image.tmdb.org/t/p/w500/'+item.profile_path"
+            width="300"
+            height="250"
+            loading="lazy"
+            class="card-img-top" alt="...">
             <span class="badge badge-custom rounded-pill text-bg-warning">Pop. {{item.popularity}}</span>
           </a>
           <div class="card-body">

@@ -15,10 +15,16 @@
         <div class="card h-100 shadow animate__animated animate__fadeIn">
           <a [routerLink]="'/detalhes/'+item.id">
             @if (item.poster_path != null) {
-                <img [src]="'https://image.tmdb.org/t/p/w500/'+item.poster_path"
+                <img [ngSrc]="'https://image.tmdb.org/t/p/w500/'+item.poster_path"
+                width="300"
+                height="300"
+                loading="lazy"
                 class="card-img-top" alt="...">
             } @else {                
-                <img [src]="'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQiUqGvs-Wgpbk4a8HcVMjOVeHJ7kiryV12xpX-WwjUty5NwqHlMTm4M1caosM6IYxkW9I&usqp=CAU'"
+                <img [ngSrc]="'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQiUqGvs-Wgpbk4a8HcVMjOVeHJ7kiryV12xpX-WwjUty5NwqHlMTm4M1caosM6IYxkW9I&usqp=CAU'"
+                width="300"
+                height="300"
+                loading="lazy"
                 class="card-img-top" alt="...">
 
             }

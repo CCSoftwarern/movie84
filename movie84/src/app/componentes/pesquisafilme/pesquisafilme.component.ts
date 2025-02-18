@@ -5,12 +5,12 @@ import { ActivatedRoute, RouterLink } from '@angular/router';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { AlertErrorComponent } from '../alert-error/alert-error.component';
 import { LoadingComponent } from "../loading/loading.component";
-import { Location } from '@angular/common';
+import { Location, NgOptimizedImage } from '@angular/common';
 import { ScrollTop } from 'primeng/scrolltop';
 
 @Component({
   selector: 'app-pesquisafilme',
-  imports: [RouterLink, ProgressSpinnerModule, AlertErrorComponent, LoadingComponent,  ScrollTop],
+  imports: [RouterLink, ProgressSpinnerModule, AlertErrorComponent, LoadingComponent,  ScrollTop, NgOptimizedImage],
   templateUrl: './pesquisafilme.component.html',
   styleUrl: './pesquisafilme.component.css'
 })
@@ -45,7 +45,7 @@ export class PesquisafilmeComponent implements OnInit{
         console.log(dados);
       },
       error: (erro) => {
-        console.log(erro);
+        this.isLoading = false;
       },
       complete: () => {
         this.isLoading = false;
@@ -55,9 +55,7 @@ export class PesquisafilmeComponent implements OnInit{
   }
 
   goBack(): void {
-    this.location.back(); // Navega para a página anterior
+    this.location.back();
   }
-
-
 
 }

@@ -4,14 +4,14 @@ import { filme } from '../../interfaces/filme';
 import { DetalhefilmeService } from '../../services/detalhefilme.service';
 import { FrmComentariosComponent } from "../frm-comentarios/frm-comentarios.component";
 import { ListaComentariosComponent } from "../lista-comentarios/lista-comentarios.component";
-import { Location } from '@angular/common';
+import { Location, NgOptimizedImage } from '@angular/common';
 import { ScrollTop } from 'primeng/scrolltop';
 import { DatePipe } from  '@angular/common';
 
 @Component({
   selector: 'app-detalhesfilme',
   standalone: true,
-  imports: [RouterModule, FrmComentariosComponent, ListaComentariosComponent, ScrollTop, DatePipe],
+  imports: [RouterModule, FrmComentariosComponent, ListaComentariosComponent, ScrollTop, DatePipe, NgOptimizedImage],
   templateUrl: './detalhesfilme.component.html',
   styleUrls: ['./detalhesfilme.component.css']
 })
