@@ -11,6 +11,7 @@ export class AlertErrorComponent {
 
   atualizarPagina(): void {
     window.location.reload(); // Navega para a página anterior
+    
   }
 
 }

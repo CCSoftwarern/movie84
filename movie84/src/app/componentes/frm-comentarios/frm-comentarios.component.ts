@@ -37,7 +37,7 @@ export class FrmComentariosComponent {
         // Se o idFilme for válido, faz a requisição
         this.servico.postComentarios(this.idfilme, nome, comentario).subscribe({
           next: (response) => {
-            console.log('Resposta da API:', response);
+            // console.log('Resposta da API:', response);
             this.showSucess();
             this.comentariosForm.reset();
             this.reloadPage();

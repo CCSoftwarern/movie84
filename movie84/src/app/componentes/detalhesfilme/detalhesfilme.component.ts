@@ -50,7 +50,7 @@ export class DetalhesfilmeComponent implements OnInit {
     this.servico.getDetalheFilme(idFilme).subscribe({
       next: (dados: filme) => {
         this.detalheFilme = dados;
-        console.log(dados);
+        // console.log(dados);
       },
       error: (erro) => {
         // console.log('Erro ao buscar detalhes do filme:', erro);
